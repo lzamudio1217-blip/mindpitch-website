@@ -1269,7 +1269,7 @@
             <div class="form-success-icon">🛡️</div>
             <h3>You're on the list.</h3>
             <p style="color:rgba(255,255,255,0.5); margin-top:8px;">We'll be in touch within 24 hours to set up your
-              free pilot. Check your inbox for a confirmation from info@mindpitch.net</p>
+              free pilot. Check your inbox for a confirmation email from MindPitch.</p>
           </div>
         </div>
       </div>
@@ -1301,31 +1301,65 @@
   </footer>
 
   <script>
-    function submitForm() {
+    async function submitForm() {
       const name = document.getElementById('f-name').value.trim();
       const email = document.getElementById('f-email').value.trim();
       const club = document.getElementById('f-club').value.trim();
+      const teams = document.getElementById('f-teams').value;
+      const message = document.getElementById('f-message').value.trim();
+
       if (!name || !email || !club) {
         alert('Please fill in your name, club name, and email address.');
         return;
       }
-      // Build mailto link as fallback
-      const teams = document.getElementById('f-teams').value;
-      const message = document.getElementById('f-message').value.trim();
-      const subject = encodeURIComponent(`MindPitch Pilot Request — ${club}`);
-      const body = encodeURIComponent(`Name: ${name}\nClub: ${club}\nTeams: ${teams}\nEmail: ${email}\n\n${message}`);
-      window.location.href = `mailto:info@mindpitch.net?subject=${subject}&body=${body}`;
-      // Show success
-      document.getElementById('contact-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
+
+      const submitButton = document.querySelector('.form-submit');
+      const originalButtonText = submitButton.textContent;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      submitButton.style.opacity = '0.7';
+      submitButton.style.cursor = 'not-allowed';
+
+      try {
+        const response = await fetch('/api/pilot-request', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            club,
+            teams,
+            message
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Submission failed');
+        }
+
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } catch (error) {
+        console.error('Pilot request failed:', error);
+        alert('Could not submit the form. Please email info@mindpitch.net directly.');
+
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+        submitButton.style.opacity = '1';
+        submitButton.style.cursor = 'pointer';
+      }
     }
+
     // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
         }
       });
     });
