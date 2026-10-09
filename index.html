@@ -893,6 +893,275 @@
       display: inline-block;
     }
 
+    /* GENERATOR */
+    .generator { background: var(--navy); }
+    .generator .section-h2 { color: var(--white); }
+    .generator .section-sub { color: rgba(255,255,255,0.55); }
+    .gen-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .gen-form {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .gen-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .gen-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .gen-chip {
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 0.5px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.55);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .gen-chip:hover { border-color: var(--green); color: var(--green); }
+    .gen-chip.active {
+      background: var(--green) !important;
+      border-color: var(--green) !important;
+      color: var(--navy) !important;
+      font-weight: 600;
+    }
+    .gen-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 0.5px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      resize: vertical;
+      height: 100px;
+      outline: none;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+      display: block;
+      box-sizing: border-box;
+    }
+    .gen-textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .gen-textarea:focus { border-color: var(--green); }
+    .gen-char-count {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      text-align: right;
+      margin-top: -14px;
+      margin-bottom: 16px;
+    }
+    .gen-btn {
+      width: 100%;
+      background: var(--green);
+      color: var(--navy);
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+    }
+    .gen-btn:hover { opacity: 0.9; }
+    .gen-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .gen-btn-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      margin-top: 10px;
+    }
+    .gen-output {
+      position: sticky;
+      top: 80px;
+    }
+    .gen-placeholder {
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .gen-placeholder-icon { font-size: 40px; margin-bottom: 16px; }
+    .gen-placeholder-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+    .gen-placeholder-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.2);
+      line-height: 1.6;
+    }
+    .gen-module {
+      display: none;
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .gen-module-header { padding: 24px; background: #378ADD; }
+    .gen-module-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      margin-bottom: 10px;
+    }
+    .gen-module-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 6px;
+    }
+    .gen-module-meta { font-size: 13px; color: rgba(255,255,255,0.7); }
+    .gen-module-situation {
+      padding: 20px 24px;
+      border-bottom: 0.5px solid rgba(13,27,42,0.08);
+    }
+    .gen-module-situation-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .gen-module-situation p {
+      font-size: 14px;
+      color: var(--text-dark);
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .gen-module-questions {
+      padding: 20px 24px;
+      border-bottom: 0.5px solid rgba(13,27,42,0.08);
+    }
+    .gen-module-q-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .gen-module-q {
+      font-size: 14px;
+      color: var(--text-dark);
+      padding: 8px 0;
+      border-bottom: 0.5px solid rgba(13,27,42,0.06);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .gen-module-q:last-child { border-bottom: none; }
+    .gen-module-qnum {
+      font-size: 11px;
+      font-weight: 700;
+      color: #378ADD;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .gen-module-habit {
+      padding: 16px 24px;
+      background: #FFF8ED;
+      border-left: 3px solid var(--amber);
+    }
+    .gen-module-habit-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #633806;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .gen-module-habit-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .gen-module-habit-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+    .gen-cta {
+      padding: 20px 24px;
+      background: var(--navy);
+      text-align: center;
+    }
+    .gen-cta p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+    .gen-cta a {
+      display: inline-block;
+      background: var(--green);
+      color: var(--navy);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .gen-cta a:hover { opacity: 0.9; }
+    .gen-loading {
+      display: none;
+      padding: 48px 32px;
+      text-align: center;
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+    }
+    .gen-loading-spinner {
+      width: 40px; height: 40px;
+      border: 3px solid rgba(29,158,117,0.2);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .gen-loading p { font-size: 14px; color: rgba(255,255,255,0.4); }
+    .gen-error {
+      display: none;
+      padding: 20px;
+      background: rgba(228,75,74,0.1);
+      border: 0.5px solid rgba(228,75,74,0.3);
+      border-radius: 12px;
+      font-size: 14px;
+      color: #F87171;
+      text-align: center;
+      margin-top: 12px;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       nav {
@@ -928,6 +1197,14 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .gen-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .gen-output {
+        position: static;
+      }
     }
   </style>
 </head>
@@ -953,6 +1230,7 @@
     <div class="nav-links">
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
+      <a href="#try-it">Try it</a>
       <a href="#pricing">Pricing</a>
       <a href="#about">About</a>
     </div>
@@ -1085,6 +1363,93 @@
           <div class="feature-title">Works on any phone</div>
           <div class="feature-body">No app store download. Players open mindpitch.net, tap their magic link, and they're
             in. Coach adds them once — they're set for the season.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE GENERATOR -->
+  <section class="generator" id="try-it">
+    <div class="section-inner">
+      <div class="eyebrow" style="color:rgba(29,158,117,0.8);">Try it now</div>
+      <h2 class="section-h2">See exactly what your players would receive</h2>
+      <p class="section-sub">Describe a real situation you're dealing with right now. MindPitch generates a personalised module in seconds — no login required.</p>
+
+      <div class="gen-layout">
+        <!-- FORM -->
+        <div class="gen-form">
+          <label class="gen-label">Player position</label>
+          <div class="gen-chips" id="position-chips">
+            <div class="gen-chip" onclick="selectChip('position','Goalkeeper',this)">Goalkeeper</div>
+            <div class="gen-chip" onclick="selectChip('position','Center back',this)">Center back</div>
+            <div class="gen-chip" onclick="selectChip('position','Full back',this)">Full back</div>
+            <div class="gen-chip" onclick="selectChip('position','Defensive mid',this)">Defensive mid</div>
+            <div class="gen-chip" onclick="selectChip('position','Central mid',this)">Central mid</div>
+            <div class="gen-chip" onclick="selectChip('position','Attacking mid',this)">Attacking mid</div>
+            <div class="gen-chip" onclick="selectChip('position','Winger',this)">Winger</div>
+            <div class="gen-chip" onclick="selectChip('position','Striker',this)">Striker</div>
+          </div>
+
+          <label class="gen-label">Age group</label>
+          <div class="gen-chips" id="age-chips">
+            <div class="gen-chip" onclick="selectChip('age','U13',this)">U13</div>
+            <div class="gen-chip" onclick="selectChip('age','U14',this)">U14</div>
+            <div class="gen-chip" onclick="selectChip('age','U15',this)">U15</div>
+            <div class="gen-chip" onclick="selectChip('age','U16',this)">U16</div>
+            <div class="gen-chip" onclick="selectChip('age','U17',this)">U17</div>
+          </div>
+
+          <label class="gen-label">Describe the situation</label>
+          <textarea
+            id="gen-situation"
+            class="gen-textarea"
+            placeholder="e.g. My center back goes completely silent after making a mistake. Stops communicating with the back line for 10–15 minutes. We've conceded twice this season in that window."
+            maxlength="500"
+          ></textarea>
+          <div class="gen-char-count"><span id="char-count">0</span>/500</div>
+
+          <button class="gen-btn" id="gen-btn" onclick="generateModule()" disabled>
+            <span id="gen-btn-text">⚡ Generate sample module</span>
+          </button>
+          <div class="gen-btn-note">Free · No login required · Takes ~5 seconds</div>
+          <div class="gen-error" id="gen-error"></div>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="gen-output">
+          <div class="gen-placeholder" id="gen-placeholder">
+            <div class="gen-placeholder-icon">🛡️</div>
+            <div class="gen-placeholder-title">Your module appears here</div>
+            <div class="gen-placeholder-sub">Select a position, age group, and describe a real situation you're facing with a player right now.</div>
+          </div>
+          <div class="gen-loading" id="gen-loading">
+            <div class="gen-loading-spinner"></div>
+            <p>Building your module...</p>
+          </div>
+          <div class="gen-module" id="gen-module">
+            <div class="gen-module-header" id="gen-module-header">
+              <div class="gen-module-badge" id="gen-module-badge">Confidence</div>
+              <div class="gen-module-title" id="gen-module-title">Module title</div>
+              <div class="gen-module-meta">4 questions · 5–7 min · Sample</div>
+            </div>
+            <div class="gen-module-situation">
+              <div class="gen-module-situation-label">Your situation</div>
+              <p id="gen-module-situation-text"></p>
+            </div>
+            <div class="gen-module-questions">
+              <div class="gen-module-q-label">Sample questions</div>
+              <div id="gen-module-questions-list"></div>
+            </div>
+            <div class="gen-module-habit">
+              <div class="gen-module-habit-label">Mental habit this week</div>
+              <div class="gen-module-habit-title" id="gen-habit-title"></div>
+              <div class="gen-module-habit-desc" id="gen-habit-desc"></div>
+            </div>
+            <div class="gen-cta">
+              <p>This is what your players receive within hours of a game. Assign it, and see their responses in your coach dashboard.</p>
+              <a href="#contact">Start your free 60-day pilot →</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1291,6 +1656,110 @@
   </footer>
 
   <script>
+    // ── SAMPLE GENERATOR ──────────────────────────────────────────
+    const genState = { position: null, age: null };
+
+    function selectChip(type, value, el) {
+      const group = type === 'position' ? 'position-chips' : 'age-chips';
+      document.querySelectorAll('#' + group + ' .gen-chip').forEach(function(c) {
+        c.classList.remove('active');
+      });
+      el.classList.add('active');
+      genState[type] = value;
+      updateGenBtn();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var sitEl = document.getElementById('gen-situation');
+      if (sitEl) {
+        sitEl.addEventListener('input', function() {
+          document.getElementById('char-count').textContent = this.value.length;
+          updateGenBtn();
+        });
+      }
+    });
+
+    function updateGenBtn() {
+      var situation = document.getElementById('gen-situation').value.trim();
+      var ready = genState.position && genState.age && situation.length >= 20;
+      document.getElementById('gen-btn').disabled = !ready;
+    }
+
+    var THEME_COLORS = {
+      'Confidence': '#378ADD',
+      'Mistakes': '#7F77DD',
+      'Pressure': '#D85A30',
+      'Focus': '#1D9E75',
+      'Communication': '#1D9E75',
+      'default': '#378ADD'
+    };
+
+    async function generateModule() {
+      var situation = document.getElementById('gen-situation').value.trim();
+      if (!genState.position || !genState.age || situation.length < 20) return;
+
+      document.getElementById('gen-placeholder').style.display = 'none';
+      document.getElementById('gen-module').style.display = 'none';
+      document.getElementById('gen-loading').style.display = 'block';
+      document.getElementById('gen-error').style.display = 'none';
+      document.getElementById('gen-btn').disabled = true;
+      document.getElementById('gen-btn-text').textContent = 'Generating...';
+
+      try {
+        var response = await fetch('/api/generate-sample', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ position: genState.position, age: genState.age, situation: situation })
+        });
+        var data = await response.json();
+        if (!response.ok || !data.module) throw new Error(data.error || 'Failed to generate module');
+
+        var m = data.module;
+        var color = THEME_COLORS[m.theme] || THEME_COLORS['default'];
+
+        document.getElementById('gen-module-header').style.background = color;
+        document.getElementById('gen-module-badge').textContent = m.theme || 'Mental Performance';
+        document.getElementById('gen-module-title').textContent = m.title;
+        document.getElementById('gen-module-situation-text').textContent = m.situation;
+
+        var qList = document.getElementById('gen-module-questions-list');
+        qList.innerHTML = '';
+        (m.questions || []).forEach(function(q, i) {
+          var div = document.createElement('div');
+          div.className = 'gen-module-q';
+          var num = document.createElement('span');
+          num.className = 'gen-module-qnum';
+          num.textContent = 'Q' + (i + 1);
+          var txt = document.createElement('span');
+          txt.textContent = q;
+          div.appendChild(num);
+          div.appendChild(txt);
+          qList.appendChild(div);
+        });
+
+        document.getElementById('gen-habit-title').textContent = (m.habit && m.habit.title) || '';
+        document.getElementById('gen-habit-desc').textContent = (m.habit && m.habit.description) || '';
+
+        document.getElementById('gen-loading').style.display = 'none';
+        document.getElementById('gen-module').style.display = 'block';
+
+        if (window.innerWidth < 768) {
+          document.getElementById('gen-module').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } catch(err) {
+        document.getElementById('gen-loading').style.display = 'none';
+        document.getElementById('gen-placeholder').style.display = 'block';
+        var errEl = document.getElementById('gen-error');
+        errEl.style.display = 'block';
+        errEl.textContent = err.message || 'Something went wrong. Please try again.';
+      } finally {
+        document.getElementById('gen-btn').disabled = false;
+        document.getElementById('gen-btn-text').textContent = '⚡ Generate sample module';
+        updateGenBtn();
+      }
+    }
+    // ── END SAMPLE GENERATOR ──────────────────────────────────────
+
     async function submitForm() {
       const name = document.getElementById('f-name').value.trim();
       const email = document.getElementById('f-email').value.trim();
